@@ -370,18 +370,18 @@ canvas#canvas {
   position: absolute;
   transition: 0.3s all ease;
   height: 100vh;
-  width: 80vw;
+  width: 80%;
   z-index: 999999;
   background: #FFF;
   top: 0;
-  left: -100%;
+  left: -300%;
 }
 .navbar-collapse.show {
   left: 0;
 }
 .navbar-toggler.open {
   position: absolute;
-  left: 99%;
+  left: 100%;
   background: #fff;
   top: 23px;
   border-radius: 0 22px 22px 0;
@@ -426,4 +426,8 @@ canvas#canvas {
 }
 .nav-link.active{
   color: #DC0C83 !important;
+}
+.navbar-expand-lg .navbar-nav{
+  flex-direction: column;
+  width: 100%;
 }

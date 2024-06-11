@@ -311,4 +311,8 @@ $(document).ready(function () {
   $('.navbar-toggler').click(function (e){
     $('body').toggleClass('dark-layer');
   })
+  $('.nav .nav-link').click(function (e) {
+    $('.nav li .active').removeClass('active');
+    $(this).addClass('active');
+  });
 });

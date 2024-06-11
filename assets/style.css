@@ -1,8 +1,8 @@
 body{
   font-family: "Georama", sans-serif;
   position: relative;
-  background: radial-gradient(61.68% 61.68% at 50% 50%, #FFE9F4 0%, #FFD7E6 32.03%, #FFA7C0 96.33%, #FFA4BE 100%);
-
+  /*background: radial-gradient(61.68% 61.68% at 50% 50%, #FFE9F4 0%, #FFD7E6 32.03%, #FFA7C0 96.33%, #FFA4BE 100%);*/
+  /*max-width: 375px;*/
 }
 .wheel{
 
@@ -46,6 +46,17 @@ body{
   color: #fff;
   font-weight: 600;
   border: 3px solid transparent;
+}
+.btn-buy-now{
+  background:
+    linear-gradient(#dc0c83 0 0) padding-box, /*this is your grey background*/
+    linear-gradient(to right, #FFA7C0, #FCD0DF) border-box;
+  color: #fff;
+  font-weight: 600;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .text-purple{
@@ -109,6 +120,7 @@ body{
   top: 38px;
   z-index: -1;
   padding-top: 60px;
+  border-radius: 26px;
 }
 .item-buy-spin{
   display: flex;
@@ -126,4 +138,70 @@ body{
 }
 .label-price {
   font-weight: 500;
+}
+.lucky-wheel {
+  background: radial-gradient(61.68% 61.68% at 50% 50%, #FFE9F4 0%, #FFD7E6 32.03%, #FFA7C0 96.33%, #FFA4BE 100%);
+  max-width: 375px;
+  margin: 0 auto;
+  position: relative;
+}
+.navbar-expand-lg .navbar-toggler{
+  display: block;
+}
+.nav-pills a.nav-link{
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  color: #444444 !important;
+  background: transparent;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  background: linear-gradient(90deg, #DC0C83 0%, #F571A0 100%);
+  color: #fff !important;
+  font-weight: 600;
+}
+.card{
+  padding: 0 10px;
+}
+.box-img-card{
+  background: #DC0C831A;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 62px;
+}
+.img-card{
+  width: 42px;
+}
+.card-body {
+  padding: 8px 16px;
+}
+.card-title {
+  font-size: 16px;
+}
+.content-card .price{
+  font-weight: 600;
+}
+.btn-go-now{
+  background:
+    linear-gradient(#dc0c83 0 0) padding-box, /*this is your grey background*/
+    linear-gradient(to right, #FFA7C0, #FCD0DF) border-box;
+  color: #fff;
+  font-weight: 400;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  padding: 6px 16px;
+}
+.card.finish {
+  background: #FFFFFF66;
+}
+.finish .box-img-card{
+  background: #FCE7F3;
+}
+.card{
+  border-radius: 10px;
 }
