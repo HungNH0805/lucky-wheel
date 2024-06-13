@@ -339,4 +339,158 @@ position: relative;
   font-size: 12px;
 }
 
+#signOutModal .btn-buy-now {
+  width: 50%;
+}
+.btn-agree{
+  background: linear-gradient(#FCDDEC 0 0) padding-box, /*this is your grey background*/ linear-gradient(to right, #FFA7C0, #FCD0DF) border-box;
+  font-weight: 600;
+  border: 3px solid transparent;
+  border-radius: 30px;
+  margin-top: 20px;
+  width: 50%;
+  color: #DC0C83;
+}
+.box-leader-board {
+  border-radius: 20px;
+  position: relative;
+  z-index: 9;
+}
+.leader-board-card .box-number-card {
+  width: 45px;
+  height: 45px;
+  background: #DC0C831A;
+  font-weight: 600;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: #DC0C83;
+}
+.leader-board-card{
+  background: #FFFFFF66;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.leader-board-card .price {
+  font-weight: 400;
+  font-size: 14px;
+}
+.leader-board-card:first-child{
+  box-shadow: 0px 10px 20px 0px #0000000D;
+  border: 1px solid #FFA400;
+  background: linear-gradient(91.7deg, rgba(255, 244, 164, 0.6) 0.93%, rgba(255, 227, 62, 0.6) 25.4%, rgba(255, 244, 164, 0.6) 49.87%, rgba(255, 227, 62, 0.6) 74.34%, rgba(255, 244, 164, 0.6) 98.81%);
+}
+.leader-board-card:first-child .box-number-card {
+  background-image: url(../assets/lucky/img/number-1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 42px;
+}
+.leader-board-card:first-child .box-number-card span,
+.leader-board-card:nth-child(2) .box-number-card span,
+.leader-board-card:nth-child(3) .box-number-card span{
+  display: none;
+}
+.leader-board-card .card-body{
+  padding: 0;
+}
+.leader-board-card:nth-child(2){
+  box-shadow: 0px 10px 20px 0px #0000000D;
+  border: 1px solid #FF71C2;
+  background: linear-gradient(91.7deg, rgba(255, 233, 244, 0.6) 0.93%, rgba(255, 159, 214, 0.6) 25.4%, rgba(255, 233, 244, 0.6) 53.3%, rgba(255, 159, 214, 0.6) 75.32%, rgba(255, 233, 244, 0.6) 98.81%);
 
+}
+.leader-board-card:nth-child(2) .box-number-card {
+  background-image: url(../assets/lucky/img/number-2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 42px;
+}
+
+.leader-board-card:nth-child(3){
+  box-shadow: 0px 10px 20px 0px #0000000D;
+  border: 1px solid #267AFF;
+  background: linear-gradient(91.7deg, rgba(179, 218, 254, 0.6) 0.93%, rgba(122, 191, 255, 0.6) 25.4%, rgba(179, 218, 254, 0.6) 53.3%, rgba(122, 191, 255, 0.6) 75.32%, rgba(179, 218, 254, 0.6) 98.81%);
+
+
+}
+.leader-board-card:nth-child(3) .box-number-card {
+  background-image: url(../assets/lucky/img/number-3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 42px;
+}
+.leader-board {
+  height: 630px;
+  overflow-x: hidden;
+}
+/* This will affect the scrollbar globally */
+::-webkit-scrollbar {
+  width: 4px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DC0C83; /* color of the scroll thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the scroll thumb when hovering */
+}
+.text-justify{
+  text-align: justify;
+}
+.box-leader-board.box-history p {
+  font-size: 16px;
+  line-height: 19px;
+}
+.setting-section {
+  height: 800px;
+}
+.setting-box .item-setting {
+  display: flex;
+  justify-content: space-between;
+  background: #FFFFFF66;
+  padding: 14px 15px;
+  border-radius: 50px;
+}
+.setting-box{
+  position: relative;
+  z-index: 9;
+}
+.content-setting {
+  border: none;
+  background: transparent;
+}
+.form-switch{
+  display: flex;
+  flex-flow: row-reverse;
+}
+label.form-check-label {
+  position: relative;
+  left: -45px;
+}
+.price-section {
+  height: 812px;
+}
+.price-box{
+  position: relative;
+  z-index: 9;
+}
+.price-section .price-box .item-price{
+  display: flex;
+  background: #FFFFFF66;
+  padding: 10px;
+  border-radius: 20px;
+  align-items: center;
+}
+.price-section .price-box .img-price-box{
+
+}

@@ -36,21 +36,20 @@
       <a href="/">
         <img src="./assets/lucky/img/mytelpay-logo%201.png" alt="menu">
       </a>
-      <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" data-bs-toggle="modal" data-bs-target="#signOutModal">
         <img src="./assets/lucky/img/signout.png" alt="signout">
       </a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="#">History</a>
-          <a class="nav-link" href="#">Leaderboard</a>
-          <a class="nav-link" href="#">Guidelines</a>
-          <a class="nav-link" href="#">Prices</a>
-          <a class="nav-link" href="#">Setting</a>
+          <a class="nav-link" href="./history.html">History</a>
+          <a class="nav-link" href="./leader-board.html">Leaderboard</a>
+          <a class="nav-link" href="./Guidelines.html">Guidelines</a>
+          <a class="nav-link" href="./prices.html">Prices</a>
+          <a class="nav-link" href="./setting.html">Setting</a>
           <a class="nav-link" href="#">Hotline</a>
         </div>
-        <button class="navbar-toggler open" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler open" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <img src="./assets/lucky/img/menu.png" alt="menu">
         </button>
       </div>
@@ -131,7 +130,24 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="signOutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signOutModalLabel">Good bye</h5>
+      </div>
+      <div class="modal-body text-center">
+        <img src="./assets/lucky/img/img-signout.png" alt="" class="img-fluid">
+        <p>Do you want to comback mytelpay?</p>
+        <div class="d-flex">
+          <button type="button" class="btn btn-primary btn-buy-now" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary btn-agree" >Agree</button>
+        </div>
 
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript" src="assets/custom.js"></script>
 </body>
 </html>
