@@ -497,3 +497,9 @@ label.form-check-label {
 .price-section .price-box .img-price-box{
 
 }
+.card.finish .img-finish {
+  left: unset;
+  transform: translate(0);
+  right: 0;
+  top: 8px;
+}
