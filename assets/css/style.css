@@ -1,0 +1,129 @@
+body{
+  font-family: "Georama", sans-serif;
+  position: relative;
+  background: radial-gradient(61.68% 61.68% at 50% 50%, #FFE9F4 0%, #FFD7E6 32.03%, #FFA7C0 96.33%, #FFA4BE 100%);
+  max-width: 375px;
+}
+.wheel{
+
+  padding-top: 20px;
+}
+.dark-layer:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #000000B8;
+  z-index: 99999;
+  position: absolute;
+}
+.navbar-nav{
+  padding-left: 20px;
+  padding-right: 32px;
+}
+.nav-link{
+  font-weight: 600;
+  padding: 22px 0;
+  border-bottom: 1px solid #DEDEDE;
+  color: #717171 !important;
+}
+.navbar-toggler{
+  padding: 0.25rem;
+}
+.btn-start{
+  margin-top: 24px;
+  margin-bottom: 70px;
+  background:
+    linear-gradient(#dc0c83 0 0) padding-box, /*this is your grey background*/
+    linear-gradient(to right, #FFA7C0, #FCD0DF) border-box;
+  color: #fff;
+  font-weight: 600;
+  border: 3px solid transparent;
+}
+.btn-buy{
+  background:
+    linear-gradient(#dc0c83 0 0) padding-box, /*this is your grey background*/
+    linear-gradient(to right, #FFA7C0, #FCD0DF) border-box;
+  color: #fff;
+  font-weight: 600;
+  border: 3px solid transparent;
+}
+
+.text-purple{
+  color: #B70473;
+}
+#pills-tab{
+  z-index: 2;
+}
+.decor .decor-1 {
+  position: absolute;
+  top: 46px;
+  z-index: 1;
+}
+.decor .decor-2 {
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+  right: 7px;
+}
+.marquee {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  background: #FFFFFF40;
+  line-height: 1;
+  z-index: 4;
+}
+.marquee marquee{
+  font-size: 14px;
+  line-height: 1;
+  padding: 5px 0;
+}
+#pills-tabContent {
+  padding-top: 45px;
+}
+.modal-header {
+  background-image: url(../assets/lucky/img/back-title.png);
+  padding: 20px 0;
+  margin: 0 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+.modal-content{
+  background: transparent;
+  border: none;
+  position: relative;
+}
+.modal-title{
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+.modal-body{
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  top: 38px;
+  z-index: -1;
+  padding-top: 60px;
+}
+.item-buy-spin{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #DC0C83;
+  padding: 10px;
+  border-radius: 10px;
+  background: #DC0C831A;
+}
+.modal-footer{
+  border: none;
+}
+.text-primary{
+  color: #DC0C83 !important;
+}
+.label-price {
+  font-weight: 500;
+}

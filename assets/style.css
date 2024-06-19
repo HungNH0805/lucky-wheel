@@ -125,10 +125,13 @@ body{
 .item-buy-spin{
   display: flex;
   justify-content: space-between;
-  border: 1px solid #DC0C83;
   padding: 10px;
   border-radius: 10px;
   background: #DC0C831A;
+  cursor: pointer;
+}
+.item-buy-spin.active{
+  border: 1px solid #DC0C83;
 }
 .modal-footer{
   border: none;
