@@ -497,3 +497,36 @@ label.form-check-label {
 .price-section .price-box .img-price-box{
 
 }
+@media only screen and (max-width: 600px) {
+  .banner{
+    height: 350px;
+  }
+  .box-banner{
+    width: 100%;
+    margin-top: 40px;
+  }
+  .title-banner{
+    font-size: 22px;
+    text-align: center;
+  }
+  .what-we-offer .title{
+    width: 100%;
+  }
+  .nav-link {
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  .what-we-offer .title {
+    background-size: contain;
+    height: 47px;
+    margin: 0 auto;
+    padding-top: 5px;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .lucky-wheel {
+    max-width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+  }
+}
