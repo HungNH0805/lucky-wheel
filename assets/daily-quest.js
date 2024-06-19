@@ -28,7 +28,8 @@ function loadDailyQuestion() {
         var $time = getTimeRemainingToEndOfDay();
         $str = '<p>Daily quest points reset daily at <span class="time-reset">' + $time + '</span></p>'
         $.each(data.data, function (i, item) {
-            $str += `<div class="card mb-3 `+(item.active?'finish':'')+`">
+            $str +=
+              `<div class="card mb-3 ` + (item.active ? 'finish' : '') + `">
             <div class="row g-2 align-items-center">
               <div class="col-md-2 col-2">
                 <div class="box-img-card">
@@ -40,9 +41,9 @@ function loadDailyQuestion() {
                   <h5 class="card-title">` + item.title + `</h5>
                   <div class="align-items-center content-card d-flex justify-content-between">
                     <span class="price text-primary">` + item.quantity_spin + ` spin</span>
-                    `+(item.active?'':'<a href="#" data-id="'+item.id+'" class="btn btn-go-now">Go now</a>')+`
+                    ` + (item.active ? '' : '<a href="#" data-id="' + item.id + '" class="btn btn-go-now">Go now</a>') + `
                   </div>
-                  `+(item.active?'<img src="./assets/lucky/img/finish.png" class="img-finish" alt="finish">':'')+`
+                  ` + (item.active ? '<img src="./assets/lucky/img/finish.png" class="img-finish" alt="finish">' : '') + `
                 </div>
               </div>
             </div>

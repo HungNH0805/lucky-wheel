@@ -147,6 +147,7 @@ body{
   max-width: 375px;
   margin: 0 auto;
   position: relative;
+  height: 100vh;
 }
 .navbar-expand-lg .navbar-toggler{
   display: block;
@@ -496,6 +497,12 @@ label.form-check-label {
 }
 .price-section .price-box .img-price-box{
 
+}
+.card.finish .card-body .img-finish{
+  left: unset;
+  right: 0;
+  transform: translate(0);
+  top: 8px;
 }
 @media only screen and (max-width: 600px) {
   .banner{
