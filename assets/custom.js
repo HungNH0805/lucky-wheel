@@ -345,4 +345,27 @@ $(document).ready(function () {
         $('.nav li .active').removeClass('active');
         $(this).addClass('active');
     });
+
+  function changeLanguage(lang) {
+    fetch(`./lang_en.json`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.querySelectorAll("[data-translate]").forEach(elt => {
+          elt.textContent = data[elt.getAttribute("data-translate")];
+        });
+      })
+      .catch(e => {
+        console.log('There was a problem with the fetch operation: ' + e.message);
+      });
+  }
+  document.getElementById('languageSwitcher').addEventListener('change', function() {
+    changeLanguage(this.value);
+  });
+  changeLanguage("en");
 });
+

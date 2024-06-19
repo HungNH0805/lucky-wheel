@@ -225,4 +225,4 @@
             "undefined" != typeof module && module.exports ? (module.exports = t(require("jquery"))) : (window.toastr = t(window.jQuery));
         }
 );
-//# sourceMappingURL=toastr.js.map
+//# sourceMappingURL=toastr.json.map

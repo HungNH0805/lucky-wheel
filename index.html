@@ -39,13 +39,13 @@
       </a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="./history.html">History</a>
-          <a class="nav-link" href="./leader-board.html">Leaderboard</a>
-          <a class="nav-link" href="./Guidelines.html">Guidelines</a>
-          <a class="nav-link" href="./prices.html">Prices</a>
-          <a class="nav-link" href="./setting.html">Setting</a>
-          <a class="nav-link" href="#">Hotline</a>
+          <a class="nav-link active" aria-current="page" href="/" data-translate="Home">Home</a>
+          <a class="nav-link" href="./history.html" data-translate="History">History</a>
+          <a class="nav-link" href="./leader-board.html" data-translate="Leaderboard">Leaderboard</a>
+          <a class="nav-link" href="./Guidelines.html" data-translate="Guidelines">Guidelines</a>
+          <a class="nav-link" href="./prices.html" data-translate="Prices">Prices</a>
+          <a class="nav-link" href="./setting.html" data-translate="Setting">Setting</a>
+          <a class="nav-link" href="#" data-translate="Hotline">Hotline</a>
         </div>
         <button class="navbar-toggler open" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <img src="./assets/lucky/img/menu.png" alt="menu">
@@ -61,13 +61,13 @@
       </div>
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a href="./index.html" class="nav-link active">Home</a>
+          <a href="./index.html" class="nav-link active" data-translate="Home">Home</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a href="./daily-quest.html" class="nav-link">Daily quest</a>
+          <a href="./daily-quest.html" class="nav-link" data-translate="Daily quest">Daily quest</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a href="./daily-quest.html" class="nav-link">Grand quest</a>
+          <a href="./daily-quest.html" class="nav-link" data-translate="Grand quest">Grand quest</a>
         </li>
       </ul>
       <div class="marquee">
@@ -85,11 +85,11 @@
             <div class="nutquay"></div>
           </div>
           <div class="box-btn-start text-center">
-            <a href="#" class="btn btn-primary btn-start rounded-pill px-5">Spin</a>
+            <a href="#" class="btn btn-primary btn-start rounded-pill px-5" data-translate="Spin">Spin</a>
           </div>
           <div class="box-btn-buy text-center">
-            <p class="title">Do you want to buy spins (<span class="text-purple">50$ / 1 spins</span>)</p>
-            <a href="#" class="btn btn-primary btn-buy rounded-pill px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy now</a>
+            <span class="title" data-translate="Do you want to buy spins">Do you want to buy spins </span>(<span class="text-purple fw-bold" data-translate="50$ / 1 spins">50$ / 1 spins</span>)
+            <a href="#" class="btn btn-primary btn-buy rounded-pill px-5" data-bs-toggle="modal" data-bs-target="#exampleModal" data-translate="Buy now">Buy now</a>
           </div>
           <audio id="votay">
             <source src="assets/lucky/sound/votay.mp3" type="audio/mpeg">
@@ -105,6 +105,10 @@
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Đang cập nhật</div>
       </div>
     </div>
+    <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="vi">Vietnamese</option>
+    </select>
   </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -168,6 +172,8 @@
   </div>
 
 </div>
+<h1 data-translate="welcome"></h1>
+<p data-translate="description"></p>
 
 <script type="text/javascript" src="assets/model.js"></script>
 <script type="text/javascript" src="assets/toastr.js"></script>
