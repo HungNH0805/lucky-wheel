@@ -30,12 +30,12 @@ function loadDailyQuestion() {
         $.each(data.data, function (i, item) {
             $str += `<div class="card mb-3 `+(item.active?'finish':'')+`">
             <div class="row g-2 align-items-center">
-              <div class="col-md-2">
+              <div class="col-md-2 col-2">
                 <div class="box-img-card">
                   <img src=".` + item.image + `" class="img-fluid rounded-start img-card" alt="...">
                 </div>
               </div>
-              <div class="col-md-10">
+              <div class="col-md-10 col-10">
                 <div class="card-body">
                   <h5 class="card-title">` + item.title + `</h5>
                   <div class="align-items-center content-card d-flex justify-content-between">
