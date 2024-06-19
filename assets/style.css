@@ -504,6 +504,15 @@ label.form-check-label {
   transform: translate(0);
   top: 8px;
 }
+.arrow {
+  width: 53px;
+  position: absolute;
+  background-image: url(../assets/lucky/img/mui-kim.png);
+  height: 46px;
+  background-size: contain;
+  z-index: 9;
+  bottom: 54px;
+}
 @media only screen and (max-width: 600px) {
   .banner{
     height: 350px;
