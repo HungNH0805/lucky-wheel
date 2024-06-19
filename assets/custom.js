@@ -1,248 +1,89 @@
 $(document).ready(function () {
     wheelSpinning = true;
     let wheelPower = 13;
-    var solanquay = 10;
+    let solanquay = 0;
     // ---------------------------------------------------------------------
-    var dem = 0;
+    let dem = 0;
     let theWheel;
+    let dangquay = document.getElementById("dangquay");
+    let votay = document.getElementById("votay");
+    let sound = 0;
+    Ajax('/admin/rotation-config', function (data) {
 
-    $.ajax({
-        url: '/admin/rotation-config',
-        type: 'post',
-        dataType: 'json',
-        data: {
-            token: $("#tokenbody").val(),
-        },
-        beforeSend: function () {
-            // $.blockUI();
-        },
-        success: function (data) {
-            theWheel = new Winwheel({
-                'outerRadius': 220, // Bán kính ngoài
-                'innerRadius': 0, // Size lỗ trung tâm
-                'textFontSize': 24, // Size chữ
-                'textOrientation': 'horizontal', // Chữ nằm ngang
-                'textAlignment': 'outer', // Căn chỉnh văn bản ra bên ngoài bánh xe.
-                'numSegments': data.data.length, // Số ô
+        theWheel = new Winwheel({
+            'outerRadius': 220, // Bán kính ngoài
+            'innerRadius': 0, // Size lỗ trung tâm
+            'textFontSize': 24, // Size chữ
+            'textOrientation': 'horizontal', // Chữ nằm ngang
+            'textAlignment': 'outer', // Căn chỉnh văn bản ra bên ngoài bánh xe.
+            'numSegments': data.data.length, // Số ô
+            'responsive': true,
+            'lineWidth': 3,
+            'textLineWidth': 1.2,
+            'segments': data.data,
+            'animation': // Chỉ định hình động để sử dụng.
+                {
+                    'spins': 10, // Số vòng quay hoàn chỉnh mặc định.
+                    'callbackFinished': alertPrize,
+                    'callbackSound': playSound, // Chức năng gọi khi âm thanh đánh dấu được kích hoạt.
+                    'soundTrigger': 'pin', // Chỉ định các chân là để kích hoạt âm thanh, tùy chọn khác là 'phân đoạn'.
+                    'type': 'spinToStop',
+                    'duration': 4.5,
+                },
+            'pins': {
+                'number': data.data.length, // Số lượng chân. Họ không gian đều xung quanh bánh xe.
                 'responsive': true,
-                'lineWidth': 3,
-                'textLineWidth': 1.2,
-                'segments': data.data,
-                // [
-                //     {
-                //         'text': '5 Spin',
-                //         'fillStyle': 'rgba(255,54,169,0.86)',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': 'Good lucky',
-                //         'fillStyle': '#ff9fd6',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '100 LP',
-                //         'fillStyle': '#ff36a9',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '500 LP',
-                //         'fillStyle': '#ff9fd6',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '1000 LP',
-                //         'fillStyle': '#ff36a9',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '100 em',
-                //         'fillStyle': '#ff9fd6',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '1000 em',
-                //         'fillStyle': '#ff36a9',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '10000 em',
-                //         'fillStyle': '#ff9fd6',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '100000 em',
-                //         'fillStyle': '#ff36a9',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '100 Sms',
-                //         'fillStyle': '#ff9fd6',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '10 Sms',
-                //         'fillStyle': '#ff36a9',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     },
-                //     {
-                //         'text': '2 Spin',
-                //         'fillStyle': '#ff9fd6',
-                //         'textStrokeStyle': '#DC0C83',
-                //         'textFontWeight': 900,
-                //     }
-                // ],
-                'animation': // Chỉ định hình động để sử dụng.
-                    {
-                        'spins': 10, // Số vòng quay hoàn chỉnh mặc định.
-                        'callbackFinished': alertPrize,
-                        'callbackSound': playSound, // Chức năng gọi khi âm thanh đánh dấu được kích hoạt.
-                        'soundTrigger': 'pin', // Chỉ định các chân là để kích hoạt âm thanh, tùy chọn khác là 'phân đoạn'.
-                        'type': 'spinToStop',
-                        'duration': 4.5,
-                    },
-                'pins': {
-                    'number': data.data.length, // Số lượng chân. Họ không gian đều xung quanh bánh xe.
-                    'responsive': true,
-                    'fillStyle': '#e7706f',
-                    'outerRadius': 4,
-                }
-            });
-        },
-        complete: function () {
-        },
-        error: function (r1, r2) {
-        }
+                'fillStyle': '#e7706f',
+                'outerRadius': 4,
+            }
+        });
     })
+
     function alertPrize(indicatedSegment) {
-        if (dem < solanquay) {
-            dem++;
-            // Check xem đã hết lượt quay chưa
-            theWheel.rotationAngle = 0; // Đặt lại góc bánh xe về 0 độ.
-            theWheel.draw(); // Gọi draw để hiển thị các thay đổi cho bánh xe.
-            wheelSpinning = false; // Đặt lại thành false thành các nút nguồn và quay có thể được bấm lại.
-            $(".nutbatdau").css("background-image", "url(/assets/lucky/img/btn-start.png)"); // Hiển thị lại nút Quay
-            votay.play(); // Bật nhạc vỗ tay
-            $.ajax({
-                url: '/update-lucky',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    token: $("#tokenbody").val(),
-                },
-                beforeSend: function () {
-                    // $.blockUI();
-                },
-                success: function (data) {
-                    $(".so_luot_da_quay").text(data)
-                },
-                complete: function () {
-                },
-                error: function (r1, r2) {
-                }
-            })
-            Swal.fire({
-                title: "Giải thưởng ",
-                confirmButtonText: 'Xác nhận',
-                icon: 'success',
-                showCancelButton: true,
-                html: `
-<h4>` + indicatedSegment.text + `</h4>
-<h3><strong class="text-danger">` + indicatedSegment.price + `</strong></h3>
-<p><img width="150px" src="` + indicatedSegment.image + `"></p>
-<p>` + $(".noi_dung_tieu_đe").html() + `</p>
-      <input type="text" id="ho_ten" class="swal2-input" style="margin: unset;width: 100%; margin-bottom: 15px" placeholder="Họ tên">
-      <input type="number" id="dien_thoai" class="swal2-input" style="margin: unset;width: 100%; margin-bottom: 15px" placeholder="Điện thoại">
-      <input type="email" id="email" class="swal2-input" style="margin: unset;width: 100%; margin-bottom: 15px" placeholder="Email">
-    `,
-                focusConfirm: false,
-                preConfirm: () => {
-                    const email = Swal.getPopup().querySelector('#email').value;
-                    const dien_thoai = Swal.getPopup().querySelector('#dien_thoai').value;
-                    const ho_ten = Swal.getPopup().querySelector('#ho_ten').value;
-
-                    // Kiểm tra dữ liệu đầu vào
-                    if (ho_ten == "") {
-                        Swal.showValidationMessage('Vui lòng nhập họ tên');
-                        return false;
-                    }
-                    if (dien_thoai.length != 10) {
-                        Swal.showValidationMessage('Vui lòng nhập đúng định dạng số điện thoại');
-                        return false;
-                    }
-                    if (!isValidEmail(email)) {
-                        Swal.showValidationMessage('Email không đúng định dạng');
-                        return false;
-                    }
-                    //form 1
-                    return $.ajax({
-                        url: '/submit-lucky',
-                        type: 'post',
-                        dataType: 'json',
-                        data: {
-                            token: $("#tokenbody").val(),
-                            data: {
-
-                                field_email: $("#email").val(),
-                                field_ho_ten: $("#ho_ten").val(),
-                                field_dien_thoai: $("#dien_thoai").val(),
-                                field_giai_thuong: indicatedSegment.text,
-                            },
-                            gia_tri: indicatedSegment.price,
-                            nid: indicatedSegment.nid,
-                        },
-                        beforeSend: function () {
-                            // $.blockUI();
-                        },
-                        success: function (data) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: data.content,
-                            })
-                        },
-                        complete: function () {
-                            // $.unblock()
-                        },
-                        error: function (r1, r2) {
-                        }
-                    })
-
-
-                },
-                allowOutsideClick: () => !Swal.isLoading()
-
-            })
-        }
-        if (dem === solanquay) {
-            $(".nutbatdau").css("background-image", "url(/assets/lucky/img/btn-start.png)");
-        }
-
+        var stopAngle = indicatedSegment.endAngle - ((theWheel.segments.length - 1) % 2 === 0 ? indicatedSegment.size / 2 : 0);
+        // Đảo ngược góc để chọn segment ở vị trí đối diện
+        var targetAngle = (stopAngle + 180) % 360;
+        var targetSegment = findSegmentByAngle(targetAngle);
+        theWheel.rotationAngle = 0; // Đặt lại góc bánh xe về 0 độ.
+        theWheel.draw(); // Gọi draw để hiển thị các thay đổi cho bánh xe.
+        wheelSpinning = false; // Đặt lại thành false thành các nút nguồn và quay có thể được bấm lại.
+        $(".nutbatdau").css("background-image", "url(/assets/lucky/img/btn-start.png)"); // Hiển thị lại nút Quay
+        $('#notificationModal .text-reward').text(targetSegment.text)
+        $("#notificationModal").modal("show");
+        Ajax('/admin/rotation-config/update-spin', function () {
+        }, {
+            id: targetSegment.id
+        })
     }
 
     function playSound() {
 
     }
 
+    function findSegmentByAngle(targetAngle) {
+        let segments = theWheel.segments; // Mảng các segment
+        let totalDegrees = 360; // Tổng số độ
+        let degreesPerSegment = totalDegrees / (segments.length - 1); // Độ mỗi segment
+        // Xác định index của segment dựa trên targetAngle
+        let segmentIndex = Math.floor((targetAngle) % totalDegrees / degreesPerSegment) + 1;
+        // Trả về segment tương ứng
+        if (segmentIndex === 0) {
+            segmentIndex = segments.length - 1;
+        }
+        return theWheel.segments[segmentIndex];
+    }
+
+// Sử dụng hàm
     function randomIndex(prizes) {
         var counter = 1;
-        let prizeIndex = 0;
+        var prizeIndex = -1;
         for (let i = 0; i < prizes.length; i++) {
             if (prizes[i].number === 0) {
                 counter++
             }
         }
         if (counter === prizes.length) {
-            return null
+            return -1
         }
         //Tinh tong % mon qua hien có
         $sunPercent = 0;
@@ -269,58 +110,54 @@ $(document).ready(function () {
                 }
             }
         }
+        if (prizeIndex === -1) {
+            return prizeIndex
+        }
         if (prizes[prizeIndex].number !== 0) {
             prizes[prizeIndex].number = prizes[prizeIndex].number - 1
             return prizeIndex
-
-        } else {
+        }
+        if (prizes[prizeIndex].total_quantity < 0) {
             return randomIndex(prizes)
         }
+        return randomIndex(prizes)
     }
 
     function startSpin() {
-        let dataWheel = []
-        $.ajax({
-            url: '/admin/rotation-config',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                token: $("#tokenbody").val(),
-            },
-            beforeSend: function () {
-                // $.blockUI();
-            },
-            success: function (data) {
+
+        Ajax('/admin/rotation-config', function (data) {
+            sound = data.config.sound
+            solanquay = data.config.total_spin
+            if (dem < solanquay) {
                 // Nút quay không nhấp được khi đang chạy
                 // Dựa trên mức công suất được chọn, hãy điều chỉnh số vòng quay cho bánh xe, càng nhiều lần
                 // để xoay với thời lượng của hình ảnh động thì bánh xe quay càng nhanh.
                 theWheel.animation.spins = wheelPower;
                 var random = randomIndex(data.data);
-                console.log( stopLucky(random, data.data));
-                theWheel.animation.stopAngle = stopLucky(random, data.data);
                 // Tắt nút xoay để không thể nhấp lại trong khi bánh xe đang quay.
                 $(".nutbatdau").css("background-image", "");
-                if (random === 0) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: "Hiện trung tâm đã trao hết phần quà cho quý khách, hẹn gặp lại quý khách lần sau",
-                    })
-                } else
+                if (random === -1) {
+                    toastr.error("Hiện trung tâm đã trao hết phần quà cho quý khách, hẹn gặp lại quý khách lần sau", {
+                        CloseButton: true,
+                        ProgressBar: true
+                    });
+                } else {
+                    theWheel.animation.stopAngle = (stopLucky(random, data.data) + 180) % 360;
                     theWheel.startAnimation();
-            },
-            complete: function () {
-            },
-            error: function (r1, r2) {
+                    if (sound === 1) {
+                        dangquay.play();
+                    }
+                }
+            } else {
+                toastr.error("Your turn is over spin", {
+                    CloseButton: true,
+                    ProgressBar: true
+                });
             }
+
         })
 
 
-
-        // Bắt đầu quay bằng cách gọi startAnimation.
-
-
-        // Đặt thành true để không thể thay đổi nguồn và bật nút quay lại trong khi
-        // hình ảnh động hiện tại. Người dùng sẽ phải thiết lập lại trước khi quay lại.
     }
 
     function stopLucky(index, data) {
@@ -329,6 +166,9 @@ $(document).ready(function () {
             if (i <= index) {
                 sum += data[i]['size']
             }
+        }
+        if (data.length % 2 === 1) {
+            return sum - data[index]['size'] / 2
         }
         return sum - data[index]['size'] / 2;
     }
@@ -345,4 +185,48 @@ $(document).ready(function () {
         $('.nav li .active').removeClass('active');
         $(this).addClass('active');
     });
+    $(document).on('click', '.btn-next-spin', function () {
+        $("#notificationModal").modal('hide')
+    })
+    var pusher = new Pusher('ff239249c6d1bc1bcaab', {
+        cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function (data) {
+        $('#notificationMarquee').text(data.messages)
+    });
+    $(document).on('click', '.btn-buy', function (e) {
+        e.preventDefault();
+        Ajax('/admin/rotation-config/get-list-spin', function (data) {
+            $str = '';
+            $.each(data.data, function (i, value) {
+                $str += `
+                <div class="item-buy-spin mb-3" data-id="` + value.id + `">
+                    <span class="label-price">` + value.quantity + ` spin</span>
+                    <span class="price text-primary">` + value.price + ` kyat</span>
+                </div>
+                `
+            })
+            $("#exampleModal").modal('show').find('.modal-body').html($str + `<button type="button" class="btn btn-primary btn-buy-now">Buy now</button>`)
+        })
+    })
+    $(document).on('click', '.item-buy-spin', function () {
+        $('.item-buy-spin').removeClass('active');
+        $(this).addClass('active');
+    })
+
+    $(document).on('click', '.btn-buy-now', function () {
+        Ajax('/admin/rotation-config/save-buy-spin', function () {
+            toastr.success("You have successfully buy spins", {
+                CloseButton: true,
+                ProgressBar: true
+            });
+            setTimeout(function () {
+                location.reload();
+            }, 1000)
+        }, {
+            id: $(".item-buy-spin.active").attr("data-id")
+        })
+    })
 });
