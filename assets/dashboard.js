@@ -5,12 +5,12 @@ $(document).ready(function () {
             $.each(data.data.month, function (key, value) {
                 $str += `<div class="leader-board-card mb-3">
                 <div class="row align-items-center">
-                  <div class="col-md-2 mt-0">
+                  <div class="col-md-2 mt-0 col-2">
                     <div class="box-number-card">
                       <span>`+(key++)+`</span>
                     </div>
                   </div>
-                  <div class="col-md-10 mt-0">
+                  <div class="col-md-10 mt-0 col-10">
                     <div class="card-body">
                       <h5 class="card-title text-primary fw-bolder">`+value.hoten+`</h5>
                       <div class="align-items-center content-card d-flex justify-content-between">
@@ -29,12 +29,12 @@ $(document).ready(function () {
             $.each(data.data.week, function (key, value) {
                 $str += `<div class="leader-board-card mb-3">
                 <div class="row align-items-center">
-                  <div class="col-md-2 mt-0">
+                  <div class="col-md-2 mt-0 col-2">
                     <div class="box-number-card">
                       <span>`+(key++)+`</span>
                     </div>
                   </div>
-                  <div class="col-md-10 mt-0">
+                  <div class="col-md-10 mt-0 col-10">
                     <div class="card-body">
                       <h5 class="card-title text-primary fw-bolder">`+value.hoten+`</h5>
                       <div class="align-items-center content-card d-flex justify-content-between">

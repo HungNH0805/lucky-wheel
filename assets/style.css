@@ -7,6 +7,7 @@ body{
 .wheel{
 
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 .dark-layer:before {
   content: "";
@@ -147,7 +148,7 @@ body{
   max-width: 375px;
   margin: 0 auto;
   position: relative;
-  height: 100vh;
+  height: 100%;
 }
 .navbar-expand-lg .navbar-toggler{
   display: block;
@@ -213,7 +214,7 @@ body{
   padding: 24px 10px 25px 10px;
 position: relative;
   border: none;
-  height: 195px;
+  height: 205px;
   border-radius: 20px;
 }
 .card.vertical-card .box-img-card{
@@ -542,7 +543,8 @@ label.form-check-label {
   }
   .lucky-wheel {
     max-width: 100%;
-    max-height: 100vh;
-    height: 100vh;
+    max-height: 100%;
+    height: 100%;
+    min-height: 900px;
   }
 }
